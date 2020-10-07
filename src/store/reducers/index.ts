@@ -1,7 +1,7 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import { connectRouter } from "connected-react-router";
-import history from "../../utils/history";
+import searchReducer from "./searchReducer";
+import inputReducer from "./inputReducer";
 
 export const createReducer = () => {
-  return combineReducers({ router: connectRouter(history) });
+  return combineReducers({ search: searchReducer, value: inputReducer });
 };
