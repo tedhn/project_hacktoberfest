@@ -5,18 +5,19 @@ import { Provider } from "react-redux";
 import configureAppStore from "./store/configureStore";
 import Home from "./Containers/home/home";
 import "./locales/i18n";
-import history from "./utils/history";
-import { Route, Router } from "react-router";
+import { Route, BrowserRouter } from "react-router-dom";
 
 import "./index.scss";
+import Grid from "./Containers/Grid/grid";
 
 const store = configureAppStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={history}>
+    <BrowserRouter>
       <Route path="/" component={Home} />
-    </Router>
+      <Route path="/:login" component={Grid} />
+    </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );

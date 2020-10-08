@@ -1,13 +1,15 @@
 import React from "react";
 
-import "./panel.scss";
+import "./panels.scss";
 
-const Panel: React.FC = () => {
+const Panel = ({ info }: any) => {
+  console.log(info);
+
   return (
     <div className="panel">
       <div className="image"></div>
 
-      <div className="Name"></div>
+      <div className="Name">asdfasdf</div>
     </div>
   );
 };

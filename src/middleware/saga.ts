@@ -8,7 +8,11 @@ function* getData(action: any) {
   try {
     const response = yield callApi(name);
 
-    yield put({ type: types[1], payload: response });
+    if (response.response === "success") {
+      yield put({ type: types[1], response });
+    } else {
+      yield put({ type: types[2], response });
+    }
   } catch (e) {
     console.log(e);
   }

@@ -1,7 +1,22 @@
-.Grid {
+.grid-container {
   display: grid;
-  grid-template-columns: 250px 250px 250px 250px;
+  grid-template-columns: repeat(4, 250px);
+  grid-auto-rows: 400px;
   width: 1075px;
   column-gap: 25px;
+  row-gap: 50px;
+  margin: 100px auto;
+
+  .error {
+    grid-column: 1 / span 4;
+    text-align: center;
+  }
+}
+
+.loading {
+  height: 75px;
+  width: 200px;
+  display: flex;
+  justify-content: center;
   margin: auto;
 }

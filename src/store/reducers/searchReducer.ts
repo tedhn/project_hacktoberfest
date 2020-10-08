@@ -11,10 +11,10 @@ const searchReducer = (state = {}, action: ACTION_TYPE) => {
       return { ...state };
     }
     case SEARCH_SUCCESS: {
-      return { ...state, user: action.payload };
+      return action.response;
     }
     case SEARCH_FAILURE: {
-      return { ...state };
+      return action.response;
     }
     default:
       return state;

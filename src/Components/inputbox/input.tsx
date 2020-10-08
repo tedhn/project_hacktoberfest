@@ -1,41 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { valueUpdate } from "../../store/action/action";
-import { rootInputState } from "../../types";
+import { Link } from "react-router-dom";
+import { searchRequest } from "../../store/action/action";
 
 import "./input.scss";
 
 interface Props {
-  value: string;
-  update: any;
+  search: any;
 }
 
-const InputBox: React.FC<Props> = ({ value, update }) => {
+const InputBox: React.FC<Props> = ({ search }) => {
+  const [value, setValue] = useState("");
+
+  const handleSearch = () => {
+    search(value);
+  };
+
   return (
-    <div>
-      <input
-        className="input"
-        data-testid="input-test"
-        placeholder="Search your hero"
-        value={value}
-        onChange={(e) => update(e.target.value)}
-      />
+    <div className="container">
+      <div className="searchBox">
+        <input
+          className="input"
+          data-testid="input-test"
+          placeholder="Search your hero"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+
+        <button>
+          <Link to={`/${value}`} onClick={handleSearch}>
+            Search{" "}
+          </Link>
+        </button>
+      </div>
     </div>
   );
 };
 
-const STP = (state: rootInputState) => {
-  return {
-    value: state.inputReducer,
-  };
-};
-
 const ATP = (dispatch: any) => {
   return {
-    update: (value: string) => {
-      dispatch(valueUpdate(value));
+    search: (value: string) => {
+      dispatch(searchRequest(value));
     },
   };
 };
 
-export default connect(STP, ATP)(InputBox);
+export default connect(null, ATP)(InputBox);

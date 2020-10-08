@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
+import mySaga from "../middleware/saga";
 
 import { createReducer } from "./reducers";
 
@@ -13,6 +14,7 @@ const configureAppStore = () => {
     middleware: middlewares,
   });
 
+  sagaMiddleware.run(mySaga);
   return store;
 };
 

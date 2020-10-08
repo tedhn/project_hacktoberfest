@@ -1,17 +1,13 @@
-import { valueUpdate } from "./../store/action/action";
 import {
   SEARCH_REQUEST,
   SEARCH_SUCCESS,
   SEARCH_FAILURE,
-  VALUE_UPDATE,
 } from "../store/action/action";
 
-export interface rootSearchState {
-  searchReducer: {};
-}
+export interface rootSearchState {}
 
-export interface rootInputState {
-  inputReducer: string;
+export interface rootState {
+  results: any;
 }
 
 export interface searchRequest {
@@ -21,19 +17,11 @@ export interface searchRequest {
 
 export interface searchSuccess {
   type: typeof SEARCH_SUCCESS;
-  payload: any;
+  response: any;
 }
 export interface searchFailure {
   type: typeof SEARCH_FAILURE;
+  response: any;
 }
 
-export interface valueUpdate {
-  type: typeof VALUE_UPDATE;
-  value: string;
-}
-
-export type ACTION_TYPE =
-  | searchRequest
-  | searchSuccess
-  | searchFailure
-  | valueUpdate;
+export type ACTION_TYPE = searchRequest | searchSuccess | searchFailure;
