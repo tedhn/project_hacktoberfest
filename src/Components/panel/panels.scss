@@ -9,5 +9,28 @@
     border-radius: 4px;
     background: #fcf2bd;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    object-fit: cover;
+  }
+
+  .details {
+    margin: 10px;
+    .powerstats {
+      display: flex;
+      flex-direction: row;
+      margin-top: 80px;
+      justify-content: space-around;
+      height: 70px;
+      padding: 10px;
+
+      .stats {
+        height: 30px;
+        width: 30px;
+
+        .text {
+          margin-top: 10px;
+          text-align: center;
+        }
+      }
+    }
   }
 }
