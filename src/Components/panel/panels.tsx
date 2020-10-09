@@ -7,8 +7,10 @@ import { ReactComponent as Brain } from "../svg/brain.svg";
 import { ReactComponent as Strength } from "../svg/strength.svg";
 import { ReactComponent as Energy } from "../svg/energy.svg";
 
-const Panel = ({ info, url }: any) => {
-  console.log(info);
+const Panel = ({ info, url, handleClick }: any) => {
+  const handleUpdate = () => {
+    handleClick(info);
+  };
 
   return (
     <div className="panel">
@@ -23,7 +25,9 @@ const Panel = ({ info, url }: any) => {
           <div>{`Birthplace : ${info.biography["place-of-birth"]}`}</div>
           <div>{`Alignment : ${info.biography["alignment"]}`}</div>
         </div>
-        <Link to={`/heros/${info.name}`}>Read more...</Link>
+        <Link to={`/heros/${info.name}`} onClick={handleUpdate}>
+          Read more...
+        </Link>
 
         <div className="powerstats">
           <div className="stats">

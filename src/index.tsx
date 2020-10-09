@@ -22,7 +22,7 @@ ReactDOM.render(
       <Route path="/" exact component={Home} />
       <Route path="/search" component={InputBox} />
       <Route path="/search/:name" component={Grid} />
-      <Route path="/heros/:heroname" component={Hero} />
+      <Route path="/heros/:name" component={Hero} />
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")
