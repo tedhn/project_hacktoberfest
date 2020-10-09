@@ -7,7 +7,7 @@ import { ReactComponent as Brain } from "../svg/brain.svg";
 import { ReactComponent as Strength } from "../svg/strength.svg";
 import { ReactComponent as Energy } from "../svg/energy.svg";
 
-const Panel = ({ info }: any) => {
+const Panel = ({ info, url }: any) => {
   console.log(info);
 
   return (
@@ -15,9 +15,15 @@ const Panel = ({ info }: any) => {
       <img src={info.image.url} alt={"404"} className="image" />
 
       <div className="details">
-        <div className="Name">{info.name}</div>
-        <div className="description">{info.name}</div>
-        <Link to={`/${info.name}`}>Read more...</Link>
+        <div className="name">
+          {info.name}
+          <div className="fullname"> {` (${info.biography["full-name"]})`}</div>
+        </div>
+        <div className="description">
+          <div>{`Birthplace : ${info.biography["place-of-birth"]}`}</div>
+          <div>{`Alignment : ${info.biography["alignment"]}`}</div>
+        </div>
+        <Link to={`/heros/${info.name}`}>Read more...</Link>
 
         <div className="powerstats">
           <div className="stats">

@@ -28,8 +28,8 @@ const InputBox: React.FC<Props> = ({ search }) => {
         />
 
         <button>
-          <Link to={`/${value}`} onClick={handleSearch}>
-            Search{" "}
+          <Link to={`/search/${value}`} onClick={handleSearch}>
+            Search
           </Link>
         </button>
       </div>

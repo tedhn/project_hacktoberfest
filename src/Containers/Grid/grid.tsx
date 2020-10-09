@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { useRouteMatch } from "react-router";
 
 import Panel from "../../Components/panel/panels";
 import { rootState } from "../../types";
@@ -11,15 +12,15 @@ interface Props {
 }
 
 const Grid: React.FC<Props> = ({ state }) => {
-  console.log(state);
+  let match = useRouteMatch();
 
-  if (state.results === undefined) {
+  if (state.loading === true) {
     return <div className="loading">Loading...</div>;
   } else {
     return (
       <div className="grid-container">
-        {state.results.map((data: any, index: number) => {
-          return <Panel info={data} key={index} />;
+        {state.response.results.map((data: any, index: number) => {
+          return <Panel info={data} key={index} url={match.url} />;
         })}
       </div>
     );

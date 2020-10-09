@@ -1,11 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import InputBox from "../../Components/inputbox/input";
+import "./home.scss";
 
 const Home: React.FC = () => {
   return (
     <div className="home">
-      <InputBox />
+      <button className="button">
+        <Link to="/search">Start Searching!</Link>
+      </button>
     </div>
   );
 };

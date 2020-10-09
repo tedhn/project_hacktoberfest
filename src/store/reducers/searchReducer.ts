@@ -5,16 +5,16 @@ import {
   SEARCH_REQUEST,
 } from "../action/action";
 
-const searchReducer = (state = {}, action: ACTION_TYPE) => {
+const searchReducer = (state = { loading: false }, action: ACTION_TYPE) => {
   switch (action.type) {
     case SEARCH_REQUEST: {
-      return { ...state };
+      return { ...state, loading: true };
     }
     case SEARCH_SUCCESS: {
-      return action.response;
+      return { response: action.response, loading: false };
     }
     case SEARCH_FAILURE: {
-      return action.response;
+      return { response: action.response, loading: false };
     }
     default:
       return state;
