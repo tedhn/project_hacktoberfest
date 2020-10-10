@@ -7,10 +7,7 @@ import { ReactComponent as Brain } from "../svg/brain.svg";
 import { ReactComponent as Strength } from "../svg/strength.svg";
 import { ReactComponent as Energy } from "../svg/energy.svg";
 
-const Panel = ({ info, url, handleClick }: any) => {
-  const handleUpdate = () => {
-    handleClick(info);
-  };
+const Panel = ({ info, }: any) => {
 
   return (
     <div className="panel">
@@ -25,7 +22,7 @@ const Panel = ({ info, url, handleClick }: any) => {
           <div>{`Birthplace : ${info.biography["place-of-birth"]}`}</div>
           <div>{`Alignment : ${info.biography["alignment"]}`}</div>
         </div>
-        <Link to={`/heros/${info.name}`} onClick={handleUpdate}>
+        <Link to={`/heros/${info.id}`} >
           Read more...
         </Link>
 

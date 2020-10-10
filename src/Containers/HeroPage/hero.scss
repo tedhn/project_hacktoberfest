@@ -11,20 +11,25 @@
       object-fit: cover;
     }
     .text {
-      background-color: black;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
       position: relative;
       color: white;
       bottom: 0;
-      width: 300px;
       height: 100px;
       margin: 250px 0 50px 50px;
       padding: 20px;
       border-radius: 5px;
+      text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+        1px 1px 0 #000;
+
       .name {
         font-size: 48px;
+      }
+
+      .full-name {
+        font-size: 24px;
       }
     }
   }

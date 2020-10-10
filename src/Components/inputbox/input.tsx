@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+
 import { searchRequest } from "../../store/action/action";
 
 import "./input.scss";
@@ -37,7 +38,7 @@ const InputBox: React.FC<Props> = ({ search }) => {
   );
 };
 
-const ATP = (dispatch: any) => {
+const actionToProps = (dispatch: any) => {
   return {
     search: (value: string) => {
       dispatch(searchRequest(value));
@@ -45,4 +46,4 @@ const ATP = (dispatch: any) => {
   };
 };
 
-export default connect(null, ATP)(InputBox);
+export default connect(null, actionToProps)(InputBox);

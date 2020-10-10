@@ -1,42 +1,75 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link, useRouteMatch } from "react-router-dom";
+
+import { heroRequest } from "../../store/action/action";
 import { rootState } from "../../types";
 
 import "./hero.scss";
 
+import Stats from "../../Components/statsbar/stats";
+import Biography from "../../Components/biography/biography";
+import Appearance from "../../Components/appearance/appearance";
+import Work from "../../Components/work/work";
+import Connections from "../../Components/connections/connections";
+
 interface Props {
   state: any;
+  searchHero: any;
 }
 
-const Hero: React.FC<Props> = ({ state }) => {
+const Hero: React.FC<Props> = ({ state, searchHero }) => {
   let match = useRouteMatch();
 
-  return (
-    <div className="hero">
-      <div className="banner">
-        <img src={state.image.url} alt={"404"} className="image" />
-        <div className="text">
-          <div className="full-name">{state.biography["full-name"]}</div>
-          <div className="name">{state.name}</div>
-        </div>
-      </div>
+  useEffect(() => {
+    //@ts-ignore
+    searchHero(match.params.heroid);
+  }, []);
 
-      <div className="nav-bar">
-        <Link to={`${match.url}/status`}>Power Status</Link>
-        <Link to={`${match.url}/biography`}>Biography</Link>
-        <Link to={`${match.url}/appearance`}>Appearance</Link>
-        <Link to={`${match.url}/work`}>Work</Link>
-        <Link to={`${match.url}/connections`}>Connections</Link>
+  if (state.loading === true) {
+    return <div>asdfasf</div>;
+  } else {
+    return (
+      <div className="hero">
+        <div className="banner">
+          <img src={state.response.image.url} alt={"404"} className="image" />
+          <div className="text">
+            <div className="full-name">
+              {state.response.biography["full-name"]}
+            </div>
+            <div className="name">{state.response.name}</div>
+          </div>
+        </div>
+        <div className="nav-bar">
+          <Link to={`${match.url}/status`}>Power Status</Link>
+          <Link to={`${match.url}/biography`}>Biography</Link>
+          <Link to={`${match.url}/appearance`}>Appearance</Link>
+          <Link to={`${match.url}/work`}>Work</Link>
+          <Link to={`${match.url}/connections`}>Connections</Link>
+        </div>
+
+        <Stats stats={state.response.powerstats} />
+        <Biography biography={state.response.biography} image={state.response.image.url} name={state.response.name}/>
+        {/*  <Appearance/>
+        <Work/>
+        <Connections/> */}
       </div>
-    </div>
-  );
+    );
+  }
 };
 
-const STP = (state: rootState) => {
+const stateToProp = (state: rootState) => {
   return {
-    state: state.info,
+    state: state.hero,
   };
 };
 
-export default connect(STP)(Hero);
+const actionToProps = (dispatch: any) => {
+  return {
+    searchHero: (value: string) => {
+      dispatch(heroRequest(value));
+    },
+  };
+};
+
+export default connect(stateToProp, actionToProps)(Hero);

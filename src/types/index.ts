@@ -2,24 +2,22 @@ import {
   SEARCH_REQUEST,
   SEARCH_SUCCESS,
   SEARCH_FAILURE,
-  UPDATE_SELECTED,
+  HERO_REQUEST,
+  HERO_SUCCESS,
+  HERO_FAILURE,
 } from "../store/action/action";
 
 export interface rootSearchState {}
 
 export interface rootState {
-  results: any;
-  info: any;
+  search: any;
+  hero: any;
 }
 
 export interface searchRequest {
   type: typeof SEARCH_REQUEST;
   name: string;
   loading: boolean;
-}
-export interface updateSelected {
-  type: typeof UPDATE_SELECTED;
-  info: any;
 }
 
 export interface searchSuccess {
@@ -33,8 +31,26 @@ export interface searchFailure {
   loading: boolean;
 }
 
+export interface heroRequest{
+  type : typeof HERO_REQUEST;
+  name: string;
+  loading: boolean;
+}
+
+export interface heroSuccess{
+  type : typeof HERO_SUCCESS;
+response: any;
+loading : boolean;
+}
+
+export interface heroFailure{
+  type: typeof HERO_FAILURE;
+  response: any;
+  loading:boolean
+}
+
 export type ACTION_TYPE =
   | searchRequest
   | searchSuccess
   | searchFailure
-  | updateSelected;
+  | heroRequest | heroSuccess | heroFailure;

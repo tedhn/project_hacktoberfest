@@ -1,0 +1,47 @@
+.biography {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin: 50px 100px;
+
+  .image-container {
+    grid-column: 1;
+
+    .title {
+      font-size: 32px;
+      margin-bottom: 50px;
+    }
+
+    .image {
+      height: 500px;
+      width: 600px;
+      margin-right: 0;
+    }
+
+    .information {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  .hero-information {
+    grid-column: 2;
+    font-size: 18px;
+    margin: 100px 50px;
+
+    .data {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 20px;
+
+      div {
+        margin-right: 15px;
+      }
+
+      ul {
+        li {
+          list-style-type: none;
+        }
+      }
+    }
+  }
+}

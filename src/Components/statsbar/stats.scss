@@ -1,0 +1,19 @@
+.stats-bar {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  justify-content: center;
+  margin: auto;
+  .stats {
+    margin: 40px;
+    .image {
+      height: 50px;
+      width: 50px;
+      margin-bottom: 10px;
+    }
+
+    .text {
+      text-align: center;
+    }
+  }
+}

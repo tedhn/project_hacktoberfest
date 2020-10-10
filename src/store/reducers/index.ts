@@ -1,7 +1,7 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import searchReducer from "./searchReducer";
-import selectedHeroReducer from "./selectedHeroReducer";
+import heroReducer from "./heroReducer";
 
 export const createReducer = () => {
-  return combineReducers({ results: searchReducer, info: selectedHeroReducer });
+  return combineReducers({ search: searchReducer, hero: heroReducer });
 };

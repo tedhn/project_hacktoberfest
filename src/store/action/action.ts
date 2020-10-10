@@ -2,7 +2,10 @@ export const SEARCH_REQUEST = "SEARCH_REQUEST";
 export const SEARCH_SUCCESS = "SEARCH_SUCCESS";
 export const SEARCH_FAILURE = "SEARCH_FAILURE";
 
-export const UPDATE_SELECTED = "UPDATE_SELECTED";
+export const HERO_REQUEST = "HERO_REQUEST";
+export const HERO_SUCCESS = "HERO_SUCCESS";
+export const HERO_FAILURE = "HERO_FAILURE";
+
 
 export const searchRequest = (name: string) => {
   return {
@@ -21,9 +24,21 @@ export const searchFailure = (payload: any) => {
   return { type: SEARCH_FAILURE, payload, loading: false };
 };
 
-export const updateSelected = (info: any) => {
+
+export const heroRequest = (name: string) => {
   return {
-    type: UPDATE_SELECTED,
-    info,
+    type: HERO_REQUEST,
+    name,
+    loading: true,
+    types: [HERO_REQUEST, HERO_SUCCESS, HERO_FAILURE],
   };
 };
+
+export const heroSuccess = (payload: any) => {
+  return { type: HERO_SUCCESS, payload, loading: false };
+};
+
+export const heroFailure = (payload: any) => {
+  return { type: HERO_FAILURE, payload, loading: false };
+};
+
