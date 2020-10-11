@@ -42,7 +42,19 @@
     justify-content: center;
     padding: 50px;
     a {
+      background-color: rgb(66, 113, 255);
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      padding: 10px 30px;
       margin: 25px;
     }
   }
+}
+
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: transform(-50%, -50%);
 }

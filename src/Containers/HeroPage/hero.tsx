@@ -27,7 +27,7 @@ const Hero: React.FC<Props> = ({ state, searchHero }) => {
   }, []);
 
   if (state.loading === true) {
-    return <div>asdfasf</div>;
+    return <div className="loading">Loading</div>;
   } else {
     return (
       <div className="hero">
@@ -49,10 +49,14 @@ const Hero: React.FC<Props> = ({ state, searchHero }) => {
         </div>
 
         <Stats stats={state.response.powerstats} />
-        <Biography biography={state.response.biography} image={state.response.image.url} name={state.response.name}/>
-        {/*  <Appearance/>
-        <Work/>
-        <Connections/> */}
+        <Biography
+          biography={state.response.biography}
+          image={state.response.image.url}
+          name={state.response.name}
+        />
+        <Appearance appearance={state.response.appearance} />
+        <Work work={state.response.work} />
+        <Connections connections={state.response.connections} />
       </div>
     );
   }

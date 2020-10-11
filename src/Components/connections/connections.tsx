@@ -1,17 +1,22 @@
 import React from "react";
-import { connect } from "react-redux";
-import { rootState } from "../../types";
 
-const Connections = ({ state }: any) => {
-  const { connections } = state;
+import "./connections.scss";
 
-  return <div className="connections">asdf</div>;
+interface Props {
+  connections: any;
+}
+
+const Connections: React.FC<Props> = ({ connections }) => {
+  return (
+    <div className="conections">
+      <div className="title">Appearance</div>
+
+      <div className="information">
+        <div>Group affiliations : {connections["group-affiliation"]}</div>
+        <div>Relatives : {connections.relatives}</div>
+      </div>
+    </div>
+  );
 };
 
-const stateToProps = (state: rootState) => {
-  return {
-    state: state.hero,
-  };
-};
-
-export default connect(stateToProps)(Connections);
+export default Connections;

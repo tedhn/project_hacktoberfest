@@ -1,17 +1,22 @@
 import React from "react";
-import { connect } from "react-redux";
-import { rootState } from "../../types";
 
-const Work = ({ state }: any) => {
-  const { work } = state;
+import "./work.scss";
 
-  return <div className="work">asdf</div>;
+interface Props {
+  work: any;
+}
+
+const Work: React.FC<Props> = ({ work }) => {
+  return (
+    <div className="work">
+      <div className="title">Appearance</div>
+
+      <div className="information">
+        <div>Occupation : {work.occupation}</div>
+        <div>Base : {work.base}</div>
+      </div>
+    </div>
+  );
 };
 
-const stateToProps = (state: rootState) => {
-  return {
-    state: state.hero,
-  };
-};
-
-export default connect(stateToProps)(Work);
+export default Work;

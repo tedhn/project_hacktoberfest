@@ -18,6 +18,7 @@ export interface searchRequest {
   type: typeof SEARCH_REQUEST;
   name: string;
   loading: boolean;
+  types: any;
 }
 
 export interface searchSuccess {
@@ -31,26 +32,29 @@ export interface searchFailure {
   loading: boolean;
 }
 
-export interface heroRequest{
-  type : typeof HERO_REQUEST;
-  name: string;
+export interface heroRequest {
+  type: typeof HERO_REQUEST;
+  id: string;
+  loading: boolean;
+  types: any;
+}
+
+export interface heroSuccess {
+  type: typeof HERO_SUCCESS;
+  response: any;
   loading: boolean;
 }
 
-export interface heroSuccess{
-  type : typeof HERO_SUCCESS;
-response: any;
-loading : boolean;
-}
-
-export interface heroFailure{
+export interface heroFailure {
   type: typeof HERO_FAILURE;
   response: any;
-  loading:boolean
+  loading: boolean;
 }
 
 export type ACTION_TYPE =
   | searchRequest
   | searchSuccess
   | searchFailure
-  | heroRequest | heroSuccess | heroFailure;
+  | heroRequest
+  | heroSuccess
+  | heroFailure;

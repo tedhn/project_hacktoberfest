@@ -2,7 +2,7 @@ import { HERO_REQUEST, SEARCH_REQUEST } from "./../store/action/action";
 import { put, takeLatest } from "redux-saga/effects";
 import { callApi, searchHero } from "./api";
 
-function* getData(action: any) {
+export function* getData(action: any) {
   const { name, types } = action;
 
   try {
@@ -18,7 +18,7 @@ function* getData(action: any) {
   }
 }
 
-function* getHero(action: any) {
+export function* getHero(action: any) {
   const { name, types } = action;
 
   try {

@@ -6,7 +6,6 @@ export const HERO_REQUEST = "HERO_REQUEST";
 export const HERO_SUCCESS = "HERO_SUCCESS";
 export const HERO_FAILURE = "HERO_FAILURE";
 
-
 export const searchRequest = (name: string) => {
   return {
     type: SEARCH_REQUEST,
@@ -24,11 +23,10 @@ export const searchFailure = (payload: any) => {
   return { type: SEARCH_FAILURE, payload, loading: false };
 };
 
-
-export const heroRequest = (name: string) => {
+export const heroRequest = (id: string) => {
   return {
     type: HERO_REQUEST,
-    name,
+    id,
     loading: true,
     types: [HERO_REQUEST, HERO_SUCCESS, HERO_FAILURE],
   };
@@ -41,4 +39,3 @@ export const heroSuccess = (payload: any) => {
 export const heroFailure = (payload: any) => {
   return { type: HERO_FAILURE, payload, loading: false };
 };
-
