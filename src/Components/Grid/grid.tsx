@@ -8,15 +8,18 @@ import "./grid.scss";
 
 interface Props {
   state: any;
-  update: any;
 }
 
 const Grid: React.FC<Props> = ({ state }) => {
   if (state.loading === true) {
-    return <div className="loading">Loading...</div>;
+    return (
+      <div className="loading" data-testid="test-loading">
+        Loading...
+      </div>
+    );
   } else {
     return (
-      <div className="grid-container">
+      <div className="grid-container" data-testid="test-grid">
         {state.response.results.map((data: any, index: number) => {
           return <Panel info={data} key={index} />;
         })}

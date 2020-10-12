@@ -21,7 +21,7 @@ const Appearance: React.FC<Props> = ({ appearance }) => {
   };
 
   return (
-    <div className="appearance">
+    <div className="appearance" data-testid="test-appearance">
       <div className="title">Appearance</div>
       <div onClick={toggleUnits} className="button">
         Toggle Units
@@ -31,19 +31,25 @@ const Appearance: React.FC<Props> = ({ appearance }) => {
           <div className="image">
             <Gender />
           </div>
-          <div className="text">{appearance.gender}</div>
+          <div className="text" data-testid="test-gender">
+            {appearance.gender}
+          </div>
         </div>
         <div className="information">
           <div className="image">
             <Height />
           </div>
-          <div className="text">{appearance.height[units]}</div>
+          <div className="text" data-testid="test-height">
+            {appearance.height[units]}
+          </div>
         </div>
         <div className="information">
           <div className="image">
             <Weight />
           </div>
-          <div className="text">{appearance.weight[units]}</div>
+          <div className="text" data-testid="test-weight">
+            {appearance.weight[units]}
+          </div>
         </div>
       </div>
     </div>

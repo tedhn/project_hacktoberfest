@@ -18,7 +18,7 @@ describe("Input Box", () => {
     );
     const input = utils.getByTestId("input-test");
 
-    expect(input).toHaveValue("");
+    expect(input).toBeTruthy();
   });
 
   it("changes the value according to user events", async () => {

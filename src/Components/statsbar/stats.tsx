@@ -15,42 +15,54 @@ interface Props {
 
 const Stats: React.FC<Props> = ({ stats }) => {
   return (
-    <div className="stats-bar">
+    <div className="stats-bar" data-testid="test-stats">
       <div className="stats">
         <div className="image">
           <Brain />
         </div>
-        <div className="text">{stats.intelligence}</div>
+        <div className="text" data-testid="test-intelligence">
+          {stats.intelligence}
+        </div>
       </div>
       <div className="stats">
         <div className="image">
           <Strength />
         </div>
-        <div className="text">{stats.strength}</div>
+        <div className="text" data-testid="test-strength">
+          {stats.strength}
+        </div>
       </div>
       <div className="stats">
         <div className="image">
           <Energy />
         </div>
-        <div className="text">{stats.power}</div>
+        <div className="text" data-testid="test-power">
+          {stats.power}
+        </div>
       </div>
       <div className="stats">
         <div className="image">
           <Speed />
         </div>
-        <div className="text">{stats.speed}</div>
+        <div className="text" data-testid="test-speed">
+          {stats.speed}
+        </div>
       </div>
       <div className="stats">
         <div className="image">
           <Durability />
         </div>
-        <div className="text">{stats.durability}</div>
+        <div className="text" data-testid="test-durability">
+          {stats.durability}
+        </div>
       </div>
       <div className="stats">
         <div className="image">
           <Combat />
         </div>
-        <div className="text">{stats.combat}</div>
+        <div className="text" data-testid="test-combat">
+          {stats.combat}
+        </div>
       </div>
     </div>
   );
